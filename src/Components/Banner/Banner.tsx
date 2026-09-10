@@ -2,7 +2,7 @@ import bannerImg from "../../assets/banner-stack.png";
 
 const Banner = () => {
   return (
-    <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-5 mt-10 md:mt-0 overflow-hidden">
+    <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-5 mt-26 md:mt-20 overflow-hidden ">
       <div className="banner-content w-full md:w-1/2">
         <h1 className="text-3xl md:text-6xl font-bold text-center md:text-left">
           Build Your Ideal
