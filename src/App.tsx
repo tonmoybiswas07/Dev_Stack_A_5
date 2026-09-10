@@ -1,9 +1,11 @@
+import Navbar from "./Components/Navbar/Navbar";
+
 function App() {
   return (
     <>
-      <h1 className="text-4xl font-bold text-center text-green-400">
-        dev stack started.......
-      </h1>
+    
+      <Navbar/>
+     
     </>
   );
 }
