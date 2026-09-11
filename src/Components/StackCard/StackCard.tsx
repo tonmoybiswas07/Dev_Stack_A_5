@@ -2,6 +2,7 @@ import { FaTrashCan } from "react-icons/fa6";
 import type { ITechnology } from "../../Types/Types";
 import { toast } from "react-toastify";
 
+
 const StackCard = ({
   selectTech,
   setSelectTech,
@@ -11,6 +12,14 @@ const StackCard = ({
 }) => {
   const handleRemove = (id: string) => {
     setSelectTech((prev) => prev.filter((item) => item.id !== id));
+    toast.info(
+      `${selectTech.find((tech) => tech.id === id)?.name} removed from your stack!`,
+      {
+        position: "top-right",
+        autoClose: 3000,
+        theme: "light",
+      },
+    );
   };
 
   const handleRemoveAll = () => {
