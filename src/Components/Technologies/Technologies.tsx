@@ -24,7 +24,7 @@ const Technologies = ({technologyPromiseData}:TechnologyProps) => {
                     technologyData.map(technologyCard=><TechnologyCard technologyCard={technologyCard} key={technologyCard.id} selectTech={selectTech} setSelectTech={setSelectTech}/>)
                 }
             </div>
-            <StackCard technologyCard={technologyData} selectTech={selectTech} setSelectTech={setSelectTech} />
+            <StackCard selectTech={selectTech} setSelectTech={setSelectTech} />
             </div>
         </div>
     );
