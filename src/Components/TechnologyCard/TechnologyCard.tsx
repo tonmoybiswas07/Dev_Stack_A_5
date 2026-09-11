@@ -16,37 +16,34 @@ const TechnologyCard = ({
     (item) => item.id === technologyCard.id,
   );
 
- const handleButtonClick = () => {
-  if (alreadySelected) {
-    toast.warning(`${technologyCard.name} is already in your stack!`, {
+  const handleButtonClick = () => {
+    if (alreadySelected) {
+      toast.warning(`${technologyCard.name} is already in your stack!`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      });
+
+      return;
+    }
+
+    setSelectTech((prev) => [...prev, technologyCard]);
+
+    toast.success(`${technologyCard.name} added to your stack!`, {
       position: "top-right",
       autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
       theme: "light",
     });
-
-    return;
-  }
-
-  setSelectTech((prev) => [
-    ...prev,
-    technologyCard,
-  ]);
-
-  toast.success(`${technologyCard.name} added to your stack!`, {
-    position: "top-right",
-    autoClose: 3000,
-    theme: "light",
-  });
-};
+  };
 
   return (
     <div>
       <div
-        className={`rounded-2xl border border-gray-300 bg-white p-4 shadow-md transition-all duration-200 ${
+        className={`rounded-2xl border border-gray-300 bg-white p-4 shadow-md transition-all duration-200 mx-2 md:mx-0 ${
           alreadySelected ? "border-red-400" : ""
         }`}
       >
