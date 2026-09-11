@@ -1,10 +1,29 @@
 import type { ITechnology } from "../../Types/Types";
 
-const TechnologyCard = ({ technologyCard }: ITechnology) => {
+const TechnologyCard = ({ technologyCard ,selectTech,setSelectTech}: { technologyCard: ITechnology; selectTech: ITechnology[]; setSelectTech: React.Dispatch<React.SetStateAction<ITechnology[]>> }) => {
+
+
+    const handleButtonClick = () => {
+        
+        const alreadySelected = selectTech.some(
+      (item: ITechnology) => item.id === technologyCard.id
+    );
+
+    if (alreadySelected) {
+      setSelectTech((prev) =>
+        prev.filter((item) => item.id !== technologyCard.id)
+      );
+    } else {
+      setSelectTech((prev) => [
+        ...prev,
+        technologyCard,
+      ]);
+    }
+    }
   return (
     <div>
       <div
-        className={`rounded-2xl border bg-white p-4 shadow-sm transition-all duration-200
+        className={`rounded-2xl border border-gray-300 shadow-md bg-white p-4  transition-all duration-200
         
       `}
       >
@@ -47,11 +66,18 @@ const TechnologyCard = ({ technologyCard }: ITechnology) => {
         </div>
 
         
-        <button
-          className={`mt-4 w-full rounded-lg py-2.5 text-sm font-semibold transition
-         
+          <button
+        onClick={handleButtonClick}
+        className={`mt-4 w-full rounded-lg py-2.5 text-sm font-semibold transition
+          ${
+            selectTech.some((item) => item.id === technologyCard.id)
+              ? "bg-teal-500 text-white hover:bg-teal-600"
+              : "bg-slate-950 text-white hover:bg-slate-800"
+          }
         `}
-        ></button>
+      >
+        {selectTech.some((item) => item.id === technologyCard.id) ? "Remove from Stack" : "Add to Stack"}
+      </button>
       </div>
     </div>
   );
